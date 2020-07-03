@@ -17,6 +17,9 @@ app.use(ratelimiter.middleware.bind(ratelimiter));
 app.set("trust proxy", 1);
 
 app.get("/:file", Uploads.getFile);
+app.get("/", (req, res) => {
+  res.status(200).send(`OK! ${res.statusCode}`);
+});
 
 app.post("/upload", Uploads.upload);
 
